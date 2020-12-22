@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view class="flow">
+    <input class="phone" placeholder="输入手机号" bindinput="onPhoneInput"/>
+    <button class="codeButton" bindtap="onCode">获取验证码</button>
+    <input class="phone" placeholder="输入验证码" bindinput="onCodeInput"/>
+    <button class="codeButton" bindtap="onFlow">领取流量</button>
+  </view>
+  <view class="bottom">
+    <text class="">made by Mr.zeng</text>
+  </view>
+</view>
